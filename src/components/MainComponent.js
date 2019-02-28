@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-import Menu from './components/MenuComponent';
-//import DishDetail from './components/Detail';
+import Menu from './MenuComponent';
+import DishDetail from './Detail'; 
 import { Navbar, NavbarBrand} from 'reactstrap';
-import {DISHES} from './shared/dishes';
+import {DISHES} from '../shared/dishes';
 //import './App.css';
 
 
-class App extends Component {
+class Main extends Component {
 
 constructor(props) {
   super(props);
 
   this.state = {
-    dishes: DISHES
-  };
-
-
+    dishes: DISHES,
+    selectedDish: null
+  }
 }
+
+  onDishSelect(dishId){
+      this.setState({selectedDish: dishId});
+  }
+
+
+
 
   render() {
     return (
@@ -29,11 +34,13 @@ constructor(props) {
             </div>
         
         </Navbar>
-        <Menu dishes={this.state.dishes}/>
+        <Menu dishes={this.state.dishes}
+         onClick={(dishId) => this.onDishSelect(dishId)} />
+        <DishDetail />
       </div>
 
     );
   }
 }
 
-export default App;
+export default Main;
