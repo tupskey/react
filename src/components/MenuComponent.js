@@ -45,8 +45,7 @@ import { baseUrl} from '../shared/baseUrl';
             </div>
           );
       }
-             
-      else
+     else{
         return(
                <div className="container">
                   <div className="row">
@@ -64,6 +63,7 @@ import { baseUrl} from '../shared/baseUrl';
                   </div>
                 </div>
             );
+        }
      }
          
 	
